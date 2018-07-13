@@ -1,0 +1,78 @@
+{
+   "AWSTemplateFormatVersion" : "2010-09-09",
+   "Resources" : {
+   "MyDB" : 
+   {
+     "Type" : "AWS::RDS::DBInstance",
+     "DeletionPolicy" : "Snapshot"   
+     "Properties" :
+     {
+       "Engine" : "aurora (for MySQL 5.6-compatible Aurora)",
+       "DBInstanceClass" : "db.t2.micro",
+       "DBInstanceIdentifier" : "AuroraRDSInstance",
+       "MasterUsername" : {"SandeepRajanP"},
+       "MasterUserPassword" : {"qwerty12345"},
+       "MutliAZ" = "false",
+       "AllocatedStorage" : "100",
+       "AllowMajorVersionUpgrade" : "true",
+       "AutoMinorVersionUpgrade" : "true",
+       "BackupRetentionPeriod":"7",
+       "CopyTagsToSnapshot" : "true",  
+       "DBName" : "AuroraDB",
+       "VPCSecurityGroups" : [{"Ref":"SecurityGroup"}],
+       "DBSubnetGroupName" : [{"Ref":"DBSubnetGroup"}],
+       "Iops" : "1000",
+       "Port" : "3306",
+       "PubliclyAccessible" : "true",
+       "KmsKeyId" :  { "Ref" : "MyKey"},
+       "StorageEncrypted" : "true",
+       "Tags": [
+           {
+               "Key": "Name",
+               "Value": "VPCforRDSDBInstance" 
+           },
+           {
+               "Key": "EmailID",
+               "Value": "sandeeprajan.p@quantiphi.com" 
+           },
+           {
+               "Key": "Username",
+               "Value": "SandeepRajan P"   
+           },
+           {
+               "Key": "Project",
+               "Value": "Applied_AI_AWS_LM"
+           }
+       ] 
+     }
+   },
+"MyKey" : {
+      "Type" : "AWS::KMS::Key",
+      "Properties" : {
+        "KeyPolicy" : {
+          "Version": "2012-10-17",
+          "Id": "key-default-1",
+          "Statement": [
+            {
+              "Sid": "Enable IAM User Permissions",
+              "Effect": "Allow",
+              "Principal": {
+                "AWS": { "Fn::Join" : ["" , ["arn:aws:iam::", {"Ref" : "AWS::AccountId"} ,":root" ]] }
+              },
+              "Action": "kms:*",
+              "Resource": "*"
+            }
+          ]
+        }
+      }
+    },
+      "DBSubnetGroup" : {
+         "Type" : "AWS::RDS::DBSubnetGroup",
+         "Properties" : {
+            "DBSubnetGroupDescription" : "description",
+            "SubnetIds" : [ {} ],
+            "Tags" : [ {"Key" : "String", "Value" : "String"} ]
+         }
+      }
+   }
+} 

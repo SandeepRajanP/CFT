@@ -1,0 +1,405 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "2018-06-27T07:22:35Z",
+    "title": "Q11_API"
+  },
+  "host": "qiytra8szb.execute-api.ap-southeast-1.amazonaws.com",
+  "basePath": "/test",
+  "schemes": [
+    "https"
+  ],
+  "paths": {
+    "/Q11_Team_List": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11TeamList", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\n    \"TeamID\":\"$input.params('TeamID')\"\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/contest-list": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "MatchID",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+           "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11ContestList", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\n    \"MatchID\":\"$input.params('MatchID')\"\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/contest-registration": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "ContestRegistration",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ContestRegistration"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+           "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11ContestRegistration", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "#set($inputRoot = $input.path('$'))\n{\n\"body\" : $input.json('$'),\n\"headers\": {\n    #foreach($param in $input.params().header.keySet())\n    \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\" #if($foreach.hasNext),#end\n\n    #end\n  }\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/player-scorecard": {
+      "put": {
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "Q11APIAuthorizer": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+          "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11PlayerScoreCard", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/players-list": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+           "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11TeamList", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "requestTemplates": {
+            "application/json": "{\n    \"TeamID\":\"$input.params('TeamID')\"\n}"
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/teamranking": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "TeamRanking",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/TeamRanking"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+           "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11TeamRanking", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    },
+    "/user-team-create": {
+      "put": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "UserTeamCreate",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/UserTeamCreate"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            }
+          }
+        },
+        "security": [
+          {
+            "Q11APIAuthorizer": []
+          }
+        ],
+        "x-amazon-apigateway-integration": {
+         "uri": {"Fn::Join" : ["", ["arn:aws:apigateway:", {"Ref": "AWS::Region"}, ":lambda:path/2015-03-31/functions/", {"Fn::GetAtt": ["Q11UserTeamCreate", "Arn"]}, "/invocations"]]},
+          "responses": {
+            "default": {
+              "statusCode": "200"
+            }
+          },
+          "passthroughBehavior": "when_no_match",
+          "httpMethod": "POST",
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "Q11APIAuthorizer": {
+      "type": "apiKey",
+      "name": "Authentication",
+      "in": "header",
+      "x-amazon-apigateway-authtype": "cognito_user_pools",
+      "x-amazon-apigateway-authorizer": {
+        "providerARNs": [
+	  {"Fn::GetAtt":["UserPool","Arn"]}],
+        "type": "cognito_user_pools"
+      }
+    }
+  },
+  "definitions": {
+    "ContestRegistration": {
+      "type": "object",
+      "required": [
+        "ContestID",
+        "MatchID",
+        "username",
+        "userteamname",
+        "walletbalance"
+      ],
+      "properties": {
+        "MatchID": {
+          "type": "string"
+        },
+        "ContestID": {
+          "type": "string"
+        },
+        "username": {
+          "type": "string"
+        },
+        "userteamname": {
+          "type": "string"
+        },
+        "walletbalance": {
+          "type": "number"
+        }
+      }
+    },
+    "Empty": {
+      "type": "object",
+      "title": "Empty Schema"
+    },
+    "TeamRanking": {
+      "type": "object",
+      "required": [
+        "ContestID",
+        "MatchID"
+      ],
+      "properties": {
+        "MatchID": {
+          "type": "string"
+        },
+        "ContestID": {
+          "type": "string"
+        }
+      }
+    },
+    "UserTeamCreate": {
+      "type": "object",
+      "required": [
+        "MatchID",
+        "Player10ID",
+        "Player11ID",
+        "Player1ID",
+        "Player2ID",
+        "Player3ID",
+        "Player4ID",
+        "Player5ID",
+        "Player6ID",
+        "Player7ID",
+        "Player8ID",
+        "Player9ID",
+        "UserTeamName",
+        "Username"
+      ],
+      "properties": {
+        "Username": {
+          "type": "string"
+        },
+        "MatchID": {
+          "type": "string"
+        },
+        "UserTeamName": {
+          "type": "string"
+        },
+        "Player1ID": {
+          "type": "string"
+        },
+        "Player2ID": {
+          "type": "string"
+        },
+        "Player3ID": {
+          "type": "string"
+        },
+        "Player4ID": {
+          "type": "string"
+        },
+        "Player5ID": {
+          "type": "string"
+        },
+        "Player6ID": {
+          "type": "string"
+        },
+        "Player7ID": {
+          "type": "string"
+        },
+        "Player8ID": {
+          "type": "string"
+        },
+        "Player9ID": {
+          "type": "string"
+        },
+        "Player10ID": {
+          "type": "string"
+        },
+        "Player11ID": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

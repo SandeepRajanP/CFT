@@ -1,0 +1,38 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Resources": {
+        "BackendStack": {
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+                "TemplateURL": "https://s3-ap-southeast-1.amazonaws.com/q11-demo/finalbackend",
+                "TimeoutInMinutes": "5"
+            }
+        },
+        "CodePipelineStack": {
+	    "DependsOn":"BackendStack",
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+				"Parameters":{
+					"StackNameOfAll":{
+						"Fn::GetAtt" : ["BackendStack","Outputs.StackName"]
+					}
+				},
+                "TemplateURL": "https://s3-ap-southeast-1.amazonaws.com/q11-demo/Pipeline",
+                "TimeoutInMinutes":"5"
+            }
+        },
+	"CustomResourceStack": {
+		"DependsOn":"BackendStack",
+		"Type":"AWS::CloudFormation::Stack",
+		"Properties":{
+		  "Parameters":{
+			"UserPoolId":{"Fn::GetAtt":["BackendStack","Outputs.UserPoolID"]},
+			"UserPoolClientId":{"Fn::GetAtt":["BackendStack","Outputs.UserPoolClientID"]},
+			"InvokeUrl":{"Fn::GetAtt":["BackendStack","Outputs.RootUrl"]}
+		   },
+		  "TemplateURL":"https://s3-ap-southeast-1.amazonaws.com/q11-demo/CustomResource",
+		  "TimeoutInMinutes":"5"
+		}
+	}
+    }
+}

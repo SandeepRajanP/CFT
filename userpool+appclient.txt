@@ -1,0 +1,55 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Resources": {
+    "UserPool": {
+      "Type": "AWS::Cognito::UserPool",
+      "Properties": {
+        "UserPoolName": "Q11Demo",
+        "AutoVerifiedAttributes": [
+          "email"
+        ],
+        "Schema": [
+          {
+            "AttributeDataType": "String",
+            "Name": "email",
+            "Required": true
+          },
+          {
+            "AttributeDataType": "String",
+            "Name": "phone_number",
+            "Required": true
+          },
+          {
+            "AttributeDataType": "String",
+            "Name": "birthdate",
+            "Required": true
+          },
+          {
+            "AttributeDataType": "String",
+            "Name": "name",
+            "Required": true
+          },
+          {
+            "AttributeDataType": "Number",
+            "Name": "WalletMoney",
+            "Mutable": true
+          },
+          {
+            "AttributeDataType": "String",
+            "Name": "WinningHistory",
+            "Mutable": true
+          }
+        ]
+      }
+    },
+    "UserPoolClient": {
+      "Type" : "AWS::Cognito::UserPoolClient",
+      "Properties" : {
+        "ClientName" : "UserPoolClient",
+        "GenerateSecret" : false,
+        "RefreshTokenValidity" : 1,
+        "UserPoolId" : {"Ref":"UserPool"}
+      }
+    }
+  }
+}

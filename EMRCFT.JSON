@@ -1,0 +1,232 @@
+{
+    "Conditions": {
+        "WithSpotPrice": {
+            "Fn::Not": [
+                {
+                    "Fn::Equals": [
+                        {
+                            "Ref": "SpotPrice"
+                        },
+                        "0"
+                    ]
+                }
+            ]
+        }
+    },
+    "Description": "CloudFormation template for creating an EMR cluster with 2 nodes only",
+    "Parameters": {
+    	"SpotPrice": {
+            "Default": "0.1",
+            "Description": "Spot price",
+            "Type": "Number"
+        },
+    	"LogBucket":{
+    		"Description":"S3 Location to store Logs",
+    		"Type":"String"
+    	},
+        "KeyName": {
+            "Description": "Name of an existing EC2 KeyPair to enable SSH to the instances",
+            "Type": "AWS::EC2::KeyPair::KeyName"
+        },
+        "Subnet": {
+            "Description": "Subnet ID for creating the EMR cluster",
+            "Type": "AWS::EC2::Subnet::Id"
+        }
+    },
+    "Resources": {
+        "EMRCluster": {
+        	"Type": "AWS::EMR::Cluster",
+            "Properties": {
+            	"Name":"EMRClusterCFTSandeep",
+            	"LogUri":{"Ref":"LogBucket"},
+                "Applications": [
+                    {
+                        "Name": "Hadoop"
+                    },
+                    {
+                        "Name": "Hive"
+                    },
+                    {
+                        "Name": "Pig"
+                    },
+                    {
+                        "Name": "Spark"
+                    },
+        		    {
+         			    "Name":	"Hue"
+        		    }
+                ],
+                "Instances": {
+                    "CoreInstanceGroup": {
+                        "Name": "Core Instance",
+                        "EbsConfiguration": {
+                            "EbsBlockDeviceConfigs": [
+                                {
+                                    "VolumeSpecification": {
+                                        "SizeInGB": "10",
+                                        "VolumeType": "gp2"
+                                    },
+                                    "VolumesPerInstance": "1"
+                                }
+                            ],
+                            "EbsOptimized": "true"
+                        },
+                        "InstanceCount": "1",
+                        "InstanceType": "m4.large",
+                        "Market": {
+                            "Fn::If": [
+                                "WithSpotPrice",
+                                "SPOT",
+                                "ON_DEMAND"
+                            ]
+                        },
+                        "BidPrice": {
+                            "Fn::If": [
+                                "WithSpotPrice",
+                                {
+                                    "Ref": "SpotPrice"
+                                },
+                                {
+                                    "Ref": "AWS::NoValue"
+                                }
+                            ]
+                        },
+                        "AutoScalingPolicy": {
+                            "Constraints": {
+                                "MaxCapacity": "3",
+                                "MinCapacity": "1"
+                            },
+                            "Rules": [
+                                {
+                                    "Action": {
+                                        "SimpleScalingPolicyConfiguration": {
+                                            "AdjustmentType": "EXACT_CAPACITY",
+                                            "CoolDown": "300",
+                                            "ScalingAdjustment": "1"
+                                        }
+                                    },
+                                    "Description": "CoreAutoScalingPolicy rules",
+                                    "Name": "CoreAutoScalingPolicy",
+                                    "Trigger": {
+                                        "CloudWatchAlarmDefinition": {
+                                            "ComparisonOperator": "GREATER_THAN_OR_EQUAL",
+                                            "Dimensions": [
+                                                {
+                                                    "Key": "my.custom.master.property",
+                                                    "Value": "my.custom.master.value"
+                                                }
+                                            ],
+                                            "EvaluationPeriods": "120",
+                                            "MetricName": "TestMetric",
+                                            "Namespace": "AWS/ElasticMapReduce",
+                                            "Period": "300",
+                                            "Statistic": "AVERAGE",
+                                            "Threshold": "50",
+                                            "Unit": "PERCENT"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    "MasterInstanceGroup": {
+                        "InstanceCount": "1",
+                        "InstanceType": "m4.large",
+                        "Market": "ON_DEMAND",
+                        "Name": "Master Instance"
+                    },             
+                    "Ec2KeyName": {
+                        "Ref": "KeyName"
+                    },
+                    "Ec2SubnetId": {
+                        "Ref": "Subnet"
+                    },
+                    "TerminationProtected": "true"
+                },
+                "ReleaseLabel": "emr-5.15.0",
+                "AutoScalingRole": "EMR_AutoScaling_DefaultRole",
+                "JobFlowRole": {
+                    "Ref": "EMRInstanceProfile"
+                },
+                "ServiceRole": {
+                    "Ref": "EMRServiceRole"
+                },
+                "Tags": [
+                	{
+            			"Key": "Name",
+                        "Value": "EMRClusterCFTSandeep"	
+                	},
+                	{
+            			"Key": "EmailID",
+                        "Value": "sandeeprajan.p@quantiphi.com"	
+                	},
+                	{
+            			"Key": "Username",
+                        "Value": "SandeepRajan P"	
+                	},
+                    {
+                        "Key": "Project",
+                        "Value": "Applied_AI_AWS_LM"
+                    }
+                ],
+                "VisibleToAllUsers": "true"
+            }
+        },
+        "EMRInstanceProfile": {
+        	"Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "Roles": [
+                    {
+                        "Ref": "EMRJobFlowRole"
+                    }
+                ]
+            }
+        },
+        "EMRJobFlowRole": {
+        	"Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "ec2.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role"
+                ]
+            }
+        },
+        "EMRServiceRole": {
+        	"Type": "AWS::IAM::Role",
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "elasticmapreduce.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                "ManagedPolicyArns": [
+                    "arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole"
+                ]
+            }
+        }
+    }
+}

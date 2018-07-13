@@ -1,0 +1,323 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "VPC Stack",
+    "Parameters": {
+        "VpcBlock": {
+            "Type": "String",
+            "Default": "10.0.0.0/16",
+            "Description": "The CIDR range for the VPC"
+        },
+        "Subnet1Block": {
+            "Type": "String",
+            "Default": "10.0.1.0/24",
+            "Description": "CidrBlock for Subnet 1 within the VPC"
+        },
+        "AMIID":{
+            "Type": "String",
+            "Default":"ami-8c122be9",
+            "Description":"AMI ID for the Instance"
+        },
+        "InstanceType":{
+            "Type":"String",
+            "Default":"t2.micro",
+            "Description":"Instance Type to be launched"
+        },
+        "SSHKey":{
+            "Type":"String",
+            "Default":"FirstKeyPair",
+            "Description":"The SSH Key to SSH into the instance"
+        }
+    },
+    "Metadata": {
+        "AWS::CloudFormation::Interface": {
+            "ParameterGroups": [
+                {
+                    "Label": {
+                        "default": "VPC Network Configuration"
+                    },
+                    "Parameters": [
+                        "VpcBlock",
+                        "Subnet1Block",
+                        "AMIID",
+                        "InstanceType",
+                        "SSHKey"
+                    ]
+                }
+            ]
+        }
+    },
+    "Resources": {
+        "MyDB" : 
+           {
+             "Type" : "AWS::RDS::DBInstance",
+             "DeletionPolicy" : "Snapshot",  
+             "Properties" :
+             {
+               "Engine" : "aurora (for MySQL 5.6-compatible Aurora)",
+               "DBInstanceClass" : "db.t2.micro",
+               "DBInstanceIdentifier" : "AuroraRDSInstance",
+               "MasterUsername" : {"SandeepRajanP"},
+               "MasterUserPassword" : {"qwerty12345"},
+               "AllocatedStorage" : "100",
+               "AllowMajorVersionUpgrade" : "true",
+               "AutoMinorVersionUpgrade" : "true",
+               "BackupRetentionPeriod":"7",
+               "CopyTagsToSnapshot" : "true",  
+               "DBName" : "AuroraDB",
+               "VPCSecurityGroups" : [{"Ref":"VPCSecurityGroup"}],
+               "DBSubnetGroupName" : [{"Ref":"DBSubnetGroup"}],
+               "Iops" : "1000",
+               "Port" : "3306",
+               "PubliclyAccessible" : "true",
+               "KmsKeyId" :  { "Ref" : "MyKey"},
+               "StorageEncrypted" : "true",
+               "Tags": [
+                   {
+                       "Key": "Name",
+                       "Value": "VPCforRDSDBInstance" 
+                   },
+                   {
+                       "Key": "EmailID",
+                       "Value": "sandeeprajan.p@quantiphi.com" 
+                   },
+                   {
+                       "Key": "Username",
+                       "Value": "SandeepRajan P"   
+                   },
+                   {
+                       "Key": "Project",
+                       "Value": "Applied_AI_AWS_LM"
+                   }
+               ] 
+             }
+           },
+          "MyKey" : {
+              "Type" : "AWS::KMS::Key",
+              "Properties" : {
+                "KeyPolicy" : {
+                  "Version": "2012-10-17",
+                  "Id": "key-default-1",
+                  "Statement": [
+                    {
+                      "Sid": "Enable IAM User Permissions",
+                      "Effect": "Allow",
+                      "Principal": {
+                        "AWS": { "Fn::Join" : ["" , ["arn:aws:iam::", {"Ref" : "AWS::AccountId"} ,":root" ]] }
+                      },
+                      "Action": "kms:*",
+                      "Resource": "*"
+                    }
+                  ]
+                }
+              }
+            },
+              "DBSubnetGroup" : {
+         "Type" : "AWS::RDS::DBSubnetGroup",
+         "Properties" : {
+            "DBSubnetGroupDescription" : "description",
+            "SubnetIds" : [ {"Ref":"Subnet1"}]
+         }
+      },
+        "VPC": {
+            "Type": "AWS::EC2::VPC",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "VpcBlock"
+                },
+                "EnableDnsSupport": "true",
+                "EnableDnsHostnames": "true",
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "VPCforRDSDBInstance" 
+                    },
+                    {
+                        "Key": "EmailID",
+                        "Value": "sandeeprajan.p@quantiphi.com" 
+                    },
+                    {
+                        "Key": "Username",
+                        "Value": "SandeepRajan P"   
+                    },
+                    {
+                        "Key": "Project",
+                        "Value": "Applied_AI_AWS_LM"
+                    }
+                ]
+            }
+        },
+        "InternetGateway": {
+            "Type": "AWS::EC2::InternetGateway"
+        },
+        "VPCGatewayAttachment": {
+            "Type": "AWS::EC2::VPCGatewayAttachment",
+            "Properties": {
+                "InternetGatewayId": {
+                    "Ref": "InternetGateway"
+                },
+                "VpcId": {
+                    "Ref": "VPC"
+                }
+            }
+        },
+        "RouteTable": {
+            "Type": "AWS::EC2::RouteTable",
+            "Properties": {
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": "Public Subnet"
+                    },
+                    {
+                        "Key": "Network",
+                        "Value": "Public"
+                    }
+                ]
+            }
+        },
+        "Route": {
+            "DependsOn": "VPCGatewayAttachment",
+            "Type": "AWS::EC2::Route",
+            "Properties": {
+                "RouteTableId": {
+                    "Ref": "RouteTable"
+                },
+                "DestinationCidrBlock": "0.0.0.0/0",
+                "GatewayId": {
+                    "Ref": "InternetGateway"
+                }
+            }
+        },
+        "Subnet1": {
+            "Type": "AWS::EC2::Subnet",
+            "Properties": {
+                "CidrBlock": {
+                    "Ref": "Subnet1Block"
+                },
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "Tags": [
+                    {
+                        "Key": "Name",
+                        "Value": {
+                            "Fn::Sub": "${AWS::StackName}-Subnet1"
+                        }
+                    }
+                ]
+            }
+        },
+        "Subnet1RouteTableAssociation": {
+            "Type": "AWS::EC2::SubnetRouteTableAssociation",
+            "Properties": {
+                "SubnetId": {
+                    "Ref": "Subnet1"
+                },
+                "RouteTableId": {
+                    "Ref": "RouteTable"
+                }
+            }
+        },
+        "VPCSecurityGroup": {
+            "Type": "AWS::EC2::SecurityGroup",
+            "Properties": {
+                "GroupDescription": "Cluster communication with worker nodes",
+                "VpcId": {
+                    "Ref": "VPC"
+                },
+                "SecurityGroupIngress" : [{
+                "IpProtocol" : "tcp",
+                "FromPort" : "80",
+                "ToPort" : "80",
+                "CidrIp" : "0.0.0.0/0"
+                },
+                {
+                "IpProtocol" : "tcp",
+                "FromPort" : "22",
+                "ToPort" : "22",
+                "CidrIp" : "0.0.0.0/0"
+                }],
+                "SecurityGroupEgress" : [{
+                "IpProtocol" : "tcp",
+                "FromPort" : "80",
+                "ToPort" : "80",
+                "CidrIp" : "0.0.0.0/0"
+                },
+                {
+                "IpProtocol" : "tcp",
+                "FromPort" : "22",
+                "ToPort" : "22",
+                "CidrIp" : "0.0.0.0/0"
+                }]
+            }
+        },
+        "InstanceProfile": {
+            "Type": "AWS::IAM::InstanceProfile",
+            "Properties": {
+                "Roles": [
+                    {
+                        "Ref": "InstanceRole"
+                    }
+                ]
+            }
+        },
+        "InstanceRole": {
+            "Type": "AWS::IAM::Role",
+              "Properties": {
+                "RoleName":"RDSFullAccess",
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyName": "RDSFullAcess",
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": "rds:*",
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                    },
+                    {   
+                        "PolicyName": "CloudWatchLog",
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

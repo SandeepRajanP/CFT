@@ -1,0 +1,2535 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Description": "This stack is serverless applications",
+    "Metadata": {
+        "AWS::CloudFormation::Designer": {
+            "007a7c84-4cf6-4845-bb5a-c4cbcd4b8d94": {
+                "embeds": [],
+                "position": {
+                    "x": 270,
+                    "y": 340
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "05f10e17-5113-4085-83aa-a000837bf0ef": {
+                "embeds": [],
+                "isassociatedwith": [
+                    "e0207959-a606-435e-a14c-c458f453d0d0"
+                ],
+                "position": {
+                    "x": -230,
+                    "y": -40
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "1951ce74-913f-4d2c-8d3a-20bb6f4cf999": {
+                "embeds": [],
+                "position": {
+                    "x": 1010,
+                    "y": 330
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "2a958208-b6f6-4d0f-bf71-20a23044aeab": {
+                "embeds": [],
+                "position": {
+                    "x": 1010,
+                    "y": 600
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "2f826c0e-522d-4dc0-a651-f21776fb9f1d": {
+                "embeds": [],
+                "position": {
+                    "x": 760,
+                    "y": 470
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "483dd0c6-b91e-4164-812b-04877b364cad": {
+                "embeds": [],
+                "position": {
+                    "x": 270,
+                    "y": 590
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "612418c8-6f9c-48fd-b469-540a2d40d4de": {
+                "embeds": [
+                    "75e10c9c-d31c-4da1-89e3-d9e057c21b9b"
+                ],
+                "position": {
+                    "x": -480,
+                    "y": 60
+                },
+                "size": {
+                    "height": 240,
+                    "width": 240
+                },
+                "z": 1
+            },
+            "634a4199-4ed9-4eb6-a840-3a8e64052798": {
+                "embeds": [],
+                "position": {
+                    "x": 750,
+                    "y": 590
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "6c2f126d-e3ce-4ba3-8fb4-65dd02fca257": {
+                "embeds": [],
+                "position": {
+                    "x": 270,
+                    "y": 190
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "75e10c9c-d31c-4da1-89e3-d9e057c21b9b": {
+                "embeds": [],
+                "iscontainedinside": [
+                    "612418c8-6f9c-48fd-b469-540a2d40d4de"
+                ],
+                "parent": "612418c8-6f9c-48fd-b469-540a2d40d4de",
+                "position": {
+                    "x": -450,
+                    "y": 120
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 2
+            },
+            "7e30d144-f1e8-4bc4-bb81-0c665f7a7a82": {
+                "embeds": [],
+                "position": {
+                    "x": 270,
+                    "y": 270
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "7eea83aa-ed29-4950-88e8-624a0c921033": {
+                "embeds": [],
+                "position": {
+                    "x": 1010,
+                    "y": 470
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "93ec7a38-e2de-4ccd-ba2d-8bbc224d964a": {
+                "embeds": [],
+                "position": {
+                    "x": 270,
+                    "y": 430
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "998f4ac3-08d4-4599-a4e6-a4445ff75d06": {
+                "embeds": [],
+                "isassociatedwith": [
+                    "fa17c9ff-9925-4c58-ad1d-751f8816b4c6"
+                ],
+                "position": {
+                    "x": -210,
+                    "y": 400
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "a8964dfd-8a97-4d00-abee-4cb79876bd1e": {
+                "embeds": [],
+                "position": {
+                    "x": 1010,
+                    "y": 190
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "b44286ab-2c82-4a6d-9dca-e56ab75727d4": {
+                "embeds": [],
+                "position": {
+                    "x": 760,
+                    "y": 270
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "e0207959-a606-435e-a14c-c458f453d0d0": {
+                "embeds": [],
+                "position": {
+                    "x": -340,
+                    "y": -40
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "f057078e-7b5d-410c-be87-32a7f01f6c44": {
+                "embeds": [],
+                "position": {
+                    "x": 500,
+                    "y": 470
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            },
+            "fa17c9ff-9925-4c58-ad1d-751f8816b4c6": {
+                "embeds": [],
+                "position": {
+                    "x": 270,
+                    "y": 510
+                },
+                "size": {
+                    "height": 60,
+                    "width": 60
+                },
+                "z": 1
+            }
+        }
+    },
+    "Outputs": {
+        "RootUrl": {
+            "Description": "Root URL of the API gateway",
+            "Value": {
+                "Fn::Join": [
+                    "",
+                    [
+                        "https://",
+                        {
+                            "Ref": "ApiGatewayApi"
+                        },
+                        ".execute-api.",
+                        {
+                            "Ref": "AWS::Region"
+                        },
+                        ".amazonaws.com"
+                    ]
+                ]
+            }
+        },
+        "StackName": {
+            "Value": {
+                "Ref": "AWS::StackName"
+            }
+        },
+        "UserPoolClientID": {
+            "Description": "User Pool Client ID",
+            "Value": {
+                "Ref": "UserPoolClient"
+            }
+        },
+        "UserPoolID": {
+            "Description": "User Pool ID",
+            "Value": {
+                "Ref": "UserPool"
+            }
+        }
+    },
+    "Resources": {
+        "ApiDeployment": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "75e10c9c-d31c-4da1-89e3-d9e057c21b9b"
+                }
+            },
+            "Properties": {
+                "RestApiId": {
+                    "Ref": "ApiGatewayApi"
+                },
+                "StageName": "Stage"
+            },
+            "Type": "AWS::ApiGateway::Deployment"
+        },
+        "ApiGatewayApi": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "612418c8-6f9c-48fd-b469-540a2d40d4de"
+                }
+            },
+            "Properties": {
+                "Body": {
+                    "basePath": "/demoproject",
+                    "definitions": {
+                        "ContestRegistration": {
+                            "properties": {
+                                "ContestID": {
+                                    "type": "string"
+                                },
+                                "MatchID": {
+                                    "type": "string"
+                                },
+                                "UserName": {
+                                    "type": "string"
+                                },
+                                "UserTeamName": {
+                                    "type": "string"
+                                },
+                                "walletbalance": {
+                                    "type": "number"
+                                }
+                            },
+                            "required": [
+                                "ContestID",
+                                "MatchID",
+                                "UserName",
+                                "UserTeamName"
+                            ],
+                            "type": "object"
+                        },
+                        "Empty": {
+                            "title": "Empty Schema",
+                            "type": "object"
+                        },
+                        "TeamRanking": {
+                            "properties": {
+                                "ContestID": {
+                                    "type": "string"
+                                },
+                                "MatchID": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "ContestID",
+                                "MatchID"
+                            ],
+                            "type": "object"
+                        },
+                        "UserTeamCreate": {
+                            "properties": {
+                                "MatchID": {
+                                    "type": "string"
+                                },
+                                "Player10ID": {
+                                    "type": "string"
+                                },
+                                "Player11ID": {
+                                    "type": "string"
+                                },
+                                "Player1ID": {
+                                    "type": "string"
+                                },
+                                "Player2ID": {
+                                    "type": "string"
+                                },
+                                "Player3ID": {
+                                    "type": "string"
+                                },
+                                "Player4ID": {
+                                    "type": "string"
+                                },
+                                "Player5ID": {
+                                    "type": "string"
+                                },
+                                "Player6ID": {
+                                    "type": "string"
+                                },
+                                "Player7ID": {
+                                    "type": "string"
+                                },
+                                "Player8ID": {
+                                    "type": "string"
+                                },
+                                "Player9ID": {
+                                    "type": "string"
+                                },
+                                "UserName": {
+                                    "type": "string"
+                                },
+                                "UserTeamName": {
+                                    "type": "string"
+                                }
+                            },
+                            "required": [
+                                "MatchID",
+                                "Player10ID",
+                                "Player11ID",
+                                "Player1ID",
+                                "Player2ID",
+                                "Player3ID",
+                                "Player4ID",
+                                "Player5ID",
+                                "Player6ID",
+                                "Player7ID",
+                                "Player8ID",
+                                "Player9ID",
+                                "UserTeamName",
+                                "UserName"
+                            ],
+                            "type": "object"
+                        }
+                    },
+                    "info": {
+                        "title": "Q11_API",
+                        "version": "2018-06-27T07:22:35Z"
+                    },
+                    "paths": {
+                        "/contest-list": {
+                            "get": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "query",
+                                        "name": "MatchID",
+                                        "required": false,
+                                        "type": "string"
+                                    }
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_templates",
+                                    "requestTemplates": {
+                                        "application/json": "{\n    \"MatchID\":\"$input.params('MatchID')\"\n}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11ContestList",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'GET'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            }
+                        },
+                        "/contest-registration": {
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'PUT'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            },
+                            "put": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "body",
+                                        "name": "ContestRegistration",
+                                        "required": true,
+                                        "schema": {
+                                            "$ref": "#/definitions/ContestRegistration"
+                                        }
+                                    }
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_templates",
+                                    "requestTemplates": {
+                                        "application/json": "#set($inputRoot = $input.path('$'))\n{\n\"body\" : $input.json('$'),\n\"headers\": {\n    #foreach($param in $input.params().header.keySet())\n    \"$param\": \"$util.escapeJavaScript($input.params().header.get($param))\" #if($foreach.hasNext),#end\n\n    #end\n  }\n}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11ContestRegistration",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "/player-scorecard": {
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'PUT'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            },
+                            "put": {
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_match",
+                                    "responses": {
+                                        "default": {
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11PlayerScoreCard",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "/players-list": {
+			    "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PUT'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'GET'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            },
+                            "get": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_templates",
+                                    "requestTemplates": {
+                                        "application/json": "{\n    \"TeamID\":\"$input.params('TeamID')\"\n}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11TeamList",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                
+                                }
+                            }
+                        },
+                        "/teamranking": {
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'PUT'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            },
+                            "put": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "body",
+                                        "name": "TeamRanking",
+                                        "required": true,
+                                        "schema": {
+                                            "$ref": "#/definitions/TeamRanking"
+                                        }
+                                    }
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_match",
+                                    "responses": {
+                                        "default": {
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11TeamRanking",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "/user-contests": {
+                            "get": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_templates",
+                                    "requestTemplates": {
+                                        "application/json": "{\n    \"MatchID\":\"$input.params('MatchID')\",\n    \"UserName\":\"$input.params('UserName')\"\n}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Origin": "'GET'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11UserContests",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            },
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'GET'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            }
+                        },
+"/winning-history": {
+      "get": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11WinningHistory",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    },
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "passthroughBehavior": "when_no_templates",
+          "httpMethod": "POST",
+          "requestTemplates": {
+            "application/json": "{\n    \"UserPoolId\": \"$input.params('UserPoolId')\"\n}"
+          },
+          "contentHandling": "CONVERT_TO_TEXT",
+          "type": "aws"
+        }
+      },
+      "options": {
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "200 response",
+            "schema": {
+              "$ref": "#/definitions/Empty"
+            },
+            "headers": {
+              "Access-Control-Allow-Origin": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Methods": {
+                "type": "string"
+              },
+              "Access-Control-Allow-Headers": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "x-amazon-apigateway-integration": {
+          "responses": {
+            "default": {
+              "statusCode": "200",
+              "responseParameters": {
+                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                "method.response.header.Access-Control-Allow-Origin": "'*'"
+              }
+            }
+          },
+          "passthroughBehavior": "when_no_match",
+          "requestTemplates": {
+            "application/json": "{\"statusCode\": 200}"
+          },
+          "type": "mock"
+        }
+      }
+    },
+                        "/user-player-list": {
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,PUT'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'PUT'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            },
+                            "put": {
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_match",
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Origin": "'PUT'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11UserPlayerName",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        "/user-team-create": {
+                            "options": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "headers": {
+                                            "Access-Control-Allow-Headers": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Methods": {
+                                                "type": "string"
+                                            },
+                                            "Access-Control-Allow-Origin": {
+                                                "type": "string"
+                                            }
+                                        },
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "passthroughBehavior": "when_no_match",
+                                    "requestTemplates": {
+                                        "application/json": "{\"statusCode\": 200}"
+                                    },
+                                    "responses": {
+                                        "default": {
+                                            "responseParameters": {
+                                                "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'",
+                                                "method.response.header.Access-Control-Allow-Methods": "'GET,OPTIONS'",
+                                                "method.response.header.Access-Control-Allow-Origin": "'PUT'"
+                                            },
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "mock"
+                                }
+                            },
+                            "put": {
+                                "consumes": [
+                                    "application/json"
+                                ],
+                                "parameters": [
+                                    {
+                                        "in": "body",
+                                        "name": "UserTeamCreate",
+                                        "required": true,
+                                        "schema": {
+                                            "$ref": "#/definitions/UserTeamCreate"
+                                        }
+                                    }
+                                ],
+                                "produces": [
+                                    "application/json"
+                                ],
+                                "responses": {
+                                    "200": {
+                                        "description": "200 response",
+                                        "schema": {
+                                            "$ref": "#/definitions/Empty"
+                                        }
+                                    }
+                                },
+                                "x-amazon-apigateway-integration": {
+                                    "contentHandling": "CONVERT_TO_TEXT",
+                                    "httpMethod": "POST",
+                                    "passthroughBehavior": "when_no_match",
+                                    "responses": {
+                                        "default": {
+                                            "statusCode": "200"
+                                        }
+                                    },
+                                    "type": "aws",
+                                    "uri": {
+                                        "Fn::Join": [
+                                            "",
+                                            [
+                                                "arn:aws:apigateway:",
+                                                {
+                                                    "Ref": "AWS::Region"
+                                                },
+                                                ":lambda:path/2015-03-31/functions/",
+                                                {
+                                                    "Fn::GetAtt": [
+                                                        "Q11UserTeamCreate",
+                                                        "Arn"
+                                                    ]
+                                                },
+                                                "/invocations"
+                                            ]
+                                        ]
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "schemes": [
+                        "https","http"
+                    ],
+                    "securityDefinitions": {
+                        "Q11APIAuthorizer": {
+                            "in": "header",
+                            "name": "Authorization",
+                            "type": "apiKey",
+                            "x-amazon-apigateway-authorizer": {
+                                "providerARNs": [
+                                    {
+                                        "Fn::GetAtt": [
+                                            "UserPool",
+                                            "Arn"
+                                        ]
+                                    }
+                                ],
+                                "type": "cognito_user_pools"
+                            },
+                            "x-amazon-apigateway-authtype": "cognito_user_pools"
+                        }
+                    },
+                    "swagger": "2.0"
+                }
+            },
+            "Type": "AWS::ApiGateway::RestApi"
+        },
+        "ContestsDB": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7eea83aa-ed29-4950-88e8-624a0c921033"
+                }
+            },
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "MatchID",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "ContestID",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "MatchID",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "ContestID",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": "1",
+                    "WriteCapacityUnits": "1"
+                },
+                "TableName": "contests"
+            },
+            "Type": "AWS::DynamoDB::Table"
+        },
+        "DynamoDBFullAccess": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "2f826c0e-522d-4dc0-a651-f21776fb9f1d"
+                }
+            },
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": "dynamodb:*",
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "DynamoDBFullAcess"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "CloudWatchLog"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "DynamoDBReadOnly": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "b44286ab-2c82-4a6d-9dca-e56ab75727d4"
+                }
+            },
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "dynamodb:BatchGetItem",
+                                        "dynamodb:ListTables",
+                                        "dynamodb:ListBackups",
+                                        "dynamodb:Scan",
+                                        "dynamodb:ListTagsOfResource",
+                                        "dynamodb:Query",
+                                        "dynamodb:DescribeStream",
+                                        "dynamodb:DescribeTimeToLive",
+                                        "dynamodb:ListStreams",
+                                        "dynamodb:DescribeGlobalTableSettings",
+                                        "dynamodb:DescribeReservedCapacityOfferings",
+                                        "dynamodb:ListGlobalTables",
+                                        "dynamodb:DescribeTable",
+                                        "dynamodb:GetShardIterator",
+                                        "dynamodb:DescribeGlobalTable",
+                                        "dynamodb:DescribeReservedCapacity",
+                                        "dynamodb:GetItem",
+                                        "dynamodb:DescribeContinuousBackups",
+                                        "dynamodb:DescribeBackup",
+                                        "dynamodb:DescribeLimits",
+                                        "dynamodb:GetRecords"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "DynamoDBReadOnly"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "CloudWatchLog"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "DynamoDBWriteOnly": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "634a4199-4ed9-4eb6-a840-3a8e64052798"
+                }
+            },
+            "Properties": {
+                "AssumeRolePolicyDocument": {
+                    "Statement": [
+                        {
+                            "Action": [
+                                "sts:AssumeRole"
+                            ],
+                            "Effect": "Allow",
+                            "Principal": {
+                                "Service": [
+                                    "lambda.amazonaws.com"
+                                ]
+                            }
+                        }
+                    ],
+                    "Version": "2012-10-17"
+                },
+                "Path": "/",
+                "Policies": [
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "dynamodb:BatchWriteItem",
+                                        "dynamodb:UpdateTimeToLive",
+                                        "dynamodb:UntagResource",
+                                        "dynamodb:PutItem",
+                                        "dynamodb:DeleteItem",
+                                        "dynamodb:PurchaseReservedCapacityOfferings",
+                                        "dynamodb:RestoreTableToPointInTime",
+                                        "dynamodb:UpdateGlobalTable",
+                                        "dynamodb:UpdateItem",
+                                        "dynamodb:CreateBackup",
+                                        "dynamodb:DeleteTable",
+                                        "dynamodb:UpdateContinuousBackups",
+                                        "dynamodb:CreateTable",
+                                        "dynamodb:UpdateGlobalTableSettings",
+                                        "dynamodb:TagResource",
+                                        "dynamodb:RestoreTableFromBackup",
+                                        "dynamodb:CreateGlobalTable",
+                                        "dynamodb:DeleteBackup",
+                                        "dynamodb:UpdateTable"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "DynamoDBWriteOnly"
+                    },
+                    {
+                        "PolicyDocument": {
+                            "Statement": [
+                                {
+                                    "Action": [
+                                        "logs:CreateLogGroup",
+                                        "logs:CreateLogStream",
+                                        "logs:PutLogEvents"
+                                    ],
+                                    "Effect": "Allow",
+                                    "Resource": "*"
+                                }
+                            ],
+                            "Version": "2012-10-17"
+                        },
+                        "PolicyName": "CloudWatchLog"
+                    }
+                ]
+            },
+            "Type": "AWS::IAM::Role"
+        },
+        "EventSourceMapping": {
+            "DependsOn": "LambdaPermission7",
+            "Properties": {
+                "BatchSize": "100",
+                "Enabled": "True",
+                "EventSourceArn": {
+                    "Fn::GetAtt": [
+                        "PlayerScoreCardDB",
+                        "StreamArn"
+                    ]
+                },
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11UserTeamScore",
+                        "Arn"
+                    ]
+                },
+                "StartingPosition": "LATEST"
+            },
+            "Type": "AWS::Lambda::EventSourceMapping"
+        },
+        "LambdaPermission": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11ContestRegistration",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission1": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11ContestList",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission2": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11PlayerScoreCard",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission3": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11TeamRanking",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission4": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11TeamList",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission5": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11UserTeamCreate",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission6": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11UserContests",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "LambdaPermission7": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11UserPlayerName",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+	"LambdaPermission8": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "998f4ac3-08d4-4599-a4e6-a4445ff75d06"
+                }
+            },
+            "Properties": {
+                "Action": "lambda:invokeFunction",
+                "FunctionName": {
+                    "Fn::GetAtt": [
+                        "Q11WinningHistory",
+                        "Arn"
+                    ]
+                },
+                "Principal": "apigateway.amazonaws.com",
+                "SourceArn": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "arn:aws:execute-api:",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ":",
+                            {
+                                "Ref": "AWS::AccountId"
+                            },
+                            ":",
+                            {
+                                "Ref": "ApiGatewayApi"
+                            },
+                            "/*"
+                        ]
+                    ]
+                }
+            },
+            "Type": "AWS::Lambda::Permission"
+        },
+        "PlayerScoreCardDB": {
+            "DependsOn": "Q11UserTeamScore",
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "2a958208-b6f6-4d0f-bf71-20a23044aeab"
+                }
+            },
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "TeamID",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "PlayerID",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "TeamID",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "PlayerID",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": "1",
+                    "WriteCapacityUnits": "1"
+                },
+                "StreamSpecification": {
+                    "StreamViewType": "NEW_IMAGE"
+                },
+                "TableName": "PlayerPointTable"
+            },
+            "Type": "AWS::DynamoDB::Table"
+        },
+        "PlayersListDb": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "a8964dfd-8a97-4d00-abee-4cb79876bd1e"
+                }
+            },
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "TeamID",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "PlayerID",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "TeamID",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "PlayerID",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": "1",
+                    "WriteCapacityUnits": "1"
+                },
+                "TableName": "Team_squad"
+            },
+            "Type": "AWS::DynamoDB::Table"
+        },
+        "Q11ContestList": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "007a7c84-4cf6-4845-bb5a-c4cbcd4b8d94"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_Contest_List.py.zip"
+                },
+                "FunctionName": "Q11_Contest_List",
+                "Handler": "Q11_Contest_List.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBReadOnly",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11ContestRegistration": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "fa17c9ff-9925-4c58-ad1d-751f8816b4c6"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_Contest_Registration.py.zip"
+                },
+                "FunctionName": "Q11_Contest_Registration",
+                "Handler": "Q11_Contest_Registration.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBFullAccess",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11PlayerScoreCard": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "93ec7a38-e2de-4ccd-ba2d-8bbc224d964a"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_Player_ScoreCard.py.zip"
+                },
+                "FunctionName": "Q11_Player_ScoreCard",
+                "Handler": "Q11_Player_ScoreCard.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBFullAccess",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11TeamList": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6c2f126d-e3ce-4ba3-8fb4-65dd02fca257"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_Team_List.py.zip"
+                },
+                "FunctionName": "Q11_Team_List",
+                "Handler": "Q11_Team_List.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBReadOnly",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11TeamRanking": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "7e30d144-f1e8-4bc4-bb81-0c665f7a7a82"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_TeamRanking.py.zip"
+                },
+                "FunctionName": "Q11_TeamRanking",
+                "Handler": "Q11_TeamRanking.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBReadOnly",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11UserContests": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "007a7c84-4cf6-4845-bb5a-c4cbcd4b8d94"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_user_contests.py.zip"
+                },
+                "FunctionName": "Q11_user_contests",
+                "Handler": "Q11_user_contests.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBReadOnly",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11UserPlayerName": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "007a7c84-4cf6-4845-bb5a-c4cbcd4b8d94"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_User_Player_name.py.zip"
+                },
+                "FunctionName": "Q11_User_Player_name",
+                "Handler": "Q11_User_Player_name.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBReadOnly",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11UserTeamCreate": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "483dd0c6-b91e-4164-812b-04877b364cad"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_User_Team_Create.py.zip"
+                },
+                "FunctionName": "Q11_User_Team_Create",
+                "Handler": "Q11_User_Team_Create.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBWriteOnly",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "Q11UserTeamScore": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "f057078e-7b5d-410c-be87-32a7f01f6c44"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_User_Team_Score.py.zip"
+                },
+                "FunctionName": "Q11_User_Team_Score",
+                "Handler": "Q11_User_Team_Score.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "DynamoDBFullAccess",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+	"Q11WinningHistory": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "6c2f126d-e3ce-4ba3-8fb4-65dd02fca257"
+                }
+            },
+            "Properties": {
+                "Code": {
+                    "S3Bucket": "q11-demo",
+                    "S3Key": "Q11_Winning_History.py.zip"
+                },
+                "FunctionName": "Q11_Winning_History",
+                "Handler": "Q11_Winning_History.lambda_handler",
+                "Role": {
+                    "Fn::GetAtt": [
+                        "LambdaAdminAccess",
+                        "Arn"
+                    ]
+                },
+                "Runtime": "python2.7",
+                "Tags": [
+                    {
+                        "Key": "lambda:createdBy",
+                        "Value": "SAM"
+                    }
+                ],
+                "Timeout": "300"
+            },
+            "Type": "AWS::Lambda::Function"
+        },
+        "UserPool": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "e0207959-a606-435e-a14c-c458f453d0d0"
+                }
+            },
+            "Properties": {
+                "AutoVerifiedAttributes": [
+                    "email"
+                ],
+                "Schema": [
+                    {
+                        "AttributeDataType": "String",
+                        "Name": "email",
+                        "Required": true
+                    },
+                    {
+                        "AttributeDataType": "String",
+                        "Name": "phone_number",
+                        "Required": true
+                    },
+                    {
+                        "AttributeDataType": "String",
+                        "Name": "birthdate",
+                        "Required": true
+                    },
+                    {
+                        "AttributeDataType": "String",
+                        "Name": "name",
+                        "Required": true
+                    },
+                    {
+                        "AttributeDataType": "Number",
+                        "Mutable": true,
+                        "Name": "WalletMoney"
+                    },
+                    {
+                        "AttributeDataType": "String",
+                        "Mutable": true,
+                        "Name": "WinningHistory"
+                    }
+                ],
+                "UserPoolName": "Q11Demo"
+            },
+            "Type": "AWS::Cognito::UserPool"
+        },
+        "UserPoolClient": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "05f10e17-5113-4085-83aa-a000837bf0ef"
+                }
+            },
+            "Properties": {
+                "ClientName": "UserPoolClient",
+                "GenerateSecret": false,
+                "RefreshTokenValidity": 1,
+                "UserPoolId": {
+                    "Ref": "UserPool"
+                }
+            },
+            "Type": "AWS::Cognito::UserPoolClient"
+        },
+        "LambdaAdminAccess": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Version" : "2012-10-17",
+               "Statement": [ {
+                  "Effect": "Allow",
+                  "Principal": {
+                     "Service": [ "lambda.amazonaws.com" ]
+                  },
+                  "Action": [ "sts:AssumeRole" ]
+               } ]
+            },
+            "Path": "/",
+            "Policies": [ {
+               "PolicyName": "S3FullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                         "s3:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+            },
+               {
+               "PolicyName": "CloudWatchLogs",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "logs:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+            {
+               "PolicyName": "DynamoDBFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "dynamodb:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+        {
+               "PolicyName": "APIGatewayFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "apigateway:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+        {
+               "PolicyName": "LambdaFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "lambda:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+            {
+               "PolicyName": "CognitoFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "cognito-idp:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               }
+        ]}},
+        "UserTeamDB": {
+            "Metadata": {
+                "AWS::CloudFormation::Designer": {
+                    "id": "1951ce74-913f-4d2c-8d3a-20bb6f4cf999"
+                }
+            },
+            "Properties": {
+                "AttributeDefinitions": [
+                    {
+                        "AttributeName": "MatchID",
+                        "AttributeType": "S"
+                    },
+                    {
+                        "AttributeName": "UserTeamName",
+                        "AttributeType": "S"
+                    }
+                ],
+                "KeySchema": [
+                    {
+                        "AttributeName": "MatchID",
+                        "KeyType": "HASH"
+                    },
+                    {
+                        "AttributeName": "UserTeamName",
+                        "KeyType": "RANGE"
+                    }
+                ],
+                "ProvisionedThroughput": {
+                    "ReadCapacityUnits": "1",
+                    "WriteCapacityUnits": "1"
+                },
+                "TableName": "user-team"
+            },
+            "Type": "AWS::DynamoDB::Table"
+        }
+    }
+}

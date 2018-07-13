@@ -1,0 +1,443 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+    "Parameters":{
+		"StackNameOfAll":{
+			"Type":"String"
+		}
+	},
+    "Resources": {
+        "Q11Build": {
+            "Description": "Creating AWS CodeBuild project",
+            "Type": "AWS::CodeBuild::Project",
+            "Properties": {
+		"Name" : "Q11_Build",
+                "Artifacts": {
+                    "Type": "CODEPIPELINE"
+                },
+                "Environment": {
+                    "ComputeType": "BUILD_GENERAL1_SMALL",
+                    "Type": "LINUX_CONTAINER",
+		    "Image": "aws/codebuild/python:2.7.12"
+                },
+                "ServiceRole": {"Fn::GetAtt" : ["CodeBuildRole", "Arn"] },
+                "Source": {
+                    "Type": "CODEPIPELINE"
+                }
+            }
+        },
+        "Q11CodePipeLine": {
+            "DependsOn":"Q11Build",
+            "Description": "Creating a deployment pipeline for your project in AWS CodePipeline",
+            "Type": "AWS::CodePipeline::Pipeline",
+            "Properties": {
+                "Name": "Q11_pipelineCFT",
+		"RoleArn": {"Fn::GetAtt" : ["CodePipeLineRole", "Arn"] },
+                "Stages": [
+                    {
+                        "Name": "Source",
+                        "Actions": [
+                            {   "OutputArtifacts": [
+                                    {
+                                        "Name": "MyApp"
+                                    }
+                                ],
+                                "Name": "Source",
+                                "ActionTypeId": {
+                                    "Version": "1",
+                                    "Category": "Source",
+                                    "Owner": "AWS",
+                                    "Provider": "CodeCommit"
+                                },
+                                "Configuration": {
+                                     "BranchName":"master",
+          			"RepositoryName": "Q11-final"
+                                },
+                                "RunOrder": 1
+                            }
+                        ]
+                    },
+                    {
+                        "Name": "Build",
+                        "Actions": [
+                            {
+                                "Name": "CodeBuild",
+                                "InputArtifacts": [
+                                    {
+                                        "Name": "MyApp"
+                                    }
+                                ],
+                                "ActionTypeId": {
+                                    "Category": "Build",
+                                    "Owner": "AWS",
+                                    "Version": "1",
+                                    "Provider": "CodeBuild"
+                                },
+                                "OutputArtifacts": [
+                                    {
+                                        "Name": "MyAppBuild"
+                                    }
+                                ],
+                                "Configuration": {
+                                    "ProjectName": "Q11_Build"
+                                },
+                                "RunOrder": 1
+                            }
+                        ]
+                    },
+		{
+                        "Name": "Deploy",
+                        "Actions": [
+                            {
+                                "Name": "Update-Stack",
+                                "InputArtifacts": [
+                                    {
+                                        "Name": "MyAppBuild"
+                                    }
+                                ],
+                                "ActionTypeId": {
+                                    "Category": "Deploy",
+                                    "Owner": "AWS",
+                                    "Version": "1",
+                                    "Provider": "CloudFormation"
+                                },
+                                "OutputArtifacts": [{"Name":"MyAppCreate"}],
+                                "Configuration": {
+                                    "StackName": {"Ref":"StackNameOfAll"},
+                                    "ActionMode": "CREATE_UPDATE",
+                                    "RoleArn": {"Fn::GetAtt" : ["CloudFormationRole", "Arn"] },
+                                    "Capabilities": "CAPABILITY_NAMED_IAM",
+                                    "TemplatePath": "MyAppBuild::outputSamTemplate.yaml"
+                                },
+                                "RunOrder": 1
+                            }
+                        ]
+                    }
+            ],
+	     "ArtifactStore":{"Type": "S3",
+			"Location": "q11-demo"}    
+            }
+        },
+        "CodePipeLineRole": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Version" : "2012-10-17",
+               "Statement": [ {
+                  "Effect": "Allow",
+                  "Principal": {
+                     "Service": [ "codepipeline.amazonaws.com" ]
+                  },
+                  "Action": [ "sts:AssumeRole" ]
+               } ]
+            },
+            "Path": "/",
+            "Policies": [ {
+               "PolicyName": "S3FullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                         "s3:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+            },{
+               "PolicyName": "IAMFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                         "iam:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+            },
+               {
+               "PolicyName": "CloudWatchLog",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "logs:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+               {
+               "PolicyName": "CodeBuildFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "codebuild:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+               {
+               "PolicyName": "CodeCommitFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "codecommit:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },{
+               "PolicyName": "CloudFormation",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "cloudformation:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               }]
+            }
+      },
+      "CodeBuildRole": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Version" : "2012-10-17",
+               "Statement": [ {
+                  "Effect": "Allow",
+                  "Principal": {
+                     "Service": [ "codebuild.amazonaws.com" ]
+                  },
+                  "Action": [ "sts:AssumeRole" ]
+               } ]
+            },
+            "Path": "/",
+            "Policies": [ {
+               "PolicyName": "S3FullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                         "s3:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+            },
+	    {
+               "PolicyName": "LambdaFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "lambda:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+               {
+               "PolicyName": "CloudWatchLogs",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "logs:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+               {
+               "PolicyName": "CodeCommitFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "codecommit:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },{
+               "PolicyName": "CloudFormation",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "cloudformation:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               }]
+            }
+      },
+      "CloudFormationRole": {
+         "Type": "AWS::IAM::Role",
+         "Properties": {
+            "AssumeRolePolicyDocument": {
+               "Version" : "2012-10-17",
+               "Statement": [ {
+                  "Effect": "Allow",
+                  "Principal": {
+                     "Service": [ "cloudformation.amazonaws.com" ]
+                  },
+                  "Action": [ "sts:AssumeRole" ]
+               } ]
+            },
+            "Path": "/",
+            "Policies": [ {
+               "PolicyName": "S3FullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                         "s3:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+            },
+	    {
+               "PolicyName": "IAMFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                         "iam:*"
+                     ],
+                     "Resource": "*"
+                  } 
+		]
+               }
+            },
+               {
+               "PolicyName": "CloudWatchLogs",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "logs:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+               {
+               "PolicyName": "CodeBuildFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "codebuild:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+ 		 {
+               "PolicyName": "CodePipeLineFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "codecommit:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+	        {
+               "PolicyName": "DynamoDBFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "dynamodb:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+		{
+               "PolicyName": "APIGatewayFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "apigateway:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+		{
+               "PolicyName": "LambdaFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "lambda:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+	        {
+               "PolicyName": "CognitoFullAccess",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "cognito-idp:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               },
+	       {
+               "PolicyName": "CloudFormation",
+               "PolicyDocument": {
+                  "Version" : "2012-10-17",
+                  "Statement": [ {
+                     "Effect": "Allow",
+                     "Action": [
+                     "cloudformation:*",
+					 "codedeploy:*",
+					 "ec2:*"
+                     ],
+                     "Resource": "*"
+                  } ]
+               }
+               }]
+            }
+      }	
+      
+}
+}
